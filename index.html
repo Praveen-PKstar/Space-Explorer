@@ -1,257 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Space Explorer</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
 </head>
-
 <body>
 
-    <!-- FIRST SCREEN -->
-    <section class="intro">
+    <div class="stars"></div>
 
-        <div class="stars"></div>
+    <main class="container">
+        <h1>SPACE EXPLORER</h1>
+        <p class="subtitle">
+            Discover the universe. Explore beyond imagination.
+        </p>
 
-        <div class="intro-content">
-            <h1>SPACE EXPLORER</h1>
-            <p>Zoom in to explore the Galaxy</p>
+        <div class="exploration-options">
 
-            <div class="scroll-indicator">
-                ↓
-            </div>
-        </div>
+            <section class="option-card">
+                <div class="card-image two-d-image"></div>
+                <h2>2D EXPLORATION</h2>
+                <p>A guided educational journey through space.</p>
+                <a href="2D.html" class="explore-button">
+                    Explore 2D
+                </a>
+            </section>
 
-    </section>
-
-
-
-<!-- SPACE EXPLORER: CONTINUOUS JOURNEY -->
-<section class="journey" id="journey">
-
-    <div class="journey-camera">
-
-        <div class="journey-stars"></div>
-
-        <!-- 01: MILKY WAY -->
-        <article class="scene scene-galaxy">
-            <div class="visual galaxy-visual">
-                <img src="milky-way.jpg" alt="Milky Way Galaxy">
-            </div>
-        </article>
-
-        <!-- 02: SOLAR SYSTEM -->
-        <article class="scene scene-solar">
-            <div class="visual solar-visual">
-
-                <div class="sun-core"></div>
-
-                <div class="orbit orbit--mercury">
-                    <span class="planet planet--mercury"></span>
-                </div>
-
-                <div class="orbit orbit--venus">
-                    <span class="planet planet--venus"></span>
-                </div>
-
-                <div class="orbit orbit--earth">
-                    <span class="planet planet--earth"></span>
-                </div>
-
-                <div class="orbit orbit--mars">
-                    <span class="planet planet--mars"></span>
-                </div>
-
-                <div class="orbit orbit--jupiter">
-                    <span class="planet planet--jupiter"></span>
-                </div>
-
-                <div class="orbit orbit--saturn">
-                    <span class="planet planet--saturn"></span>
-                </div>
-
-                <div class="orbit orbit--uranus">
-                    <span class="planet planet--uranus"></span>
-                </div>
-
-                <div class="orbit orbit--neptune">
-                    <span class="planet planet--neptune"></span>
-                </div>
-
-            </div>
-        </article>
-
-        <!-- 03: MOONS AND PLANETS -->
-        <article class="scene scene-moons">
-            <div class="visual moons-visual">
-
-                <div class="large-planet"></div>
-
-                <div class="moon-orbit">
-                    <span class="moon"></span>
-                </div>
-
-                <div class="second-moon-orbit">
-                    <span class="second-moon"></span>
-                </div>
-
-            </div>
-        </article>
-
-        <!-- 04: SPACECRAFT -->
-        <article class="scene scene-rocket">
-            <div class="visual rocket-visual">
-
-                <div class="rocket-flame"></div>
-
-                <div class="rocket-shape">
-                    <div class="rocket-nose"></div>
-                    <div class="rocket-body">
-                        <div class="rocket-window"></div>
-                    </div>
-                    <div class="rocket-fin rocket-fin-left"></div>
-                    <div class="rocket-fin rocket-fin-right"></div>
-                </div>
-
-            </div>
-        </article>
-
-        <!-- 05: EARTH -->
-        <article class="scene scene-earth">
-            <div class="visual earth-visual">
-                <img src="earth.jpg" alt="Planet Earth">
-            </div>
-        </article>
-
-        <!-- 06: EARTH SURFACE -->
-        <article class="scene scene-surface">
-            <div class="visual surface-visual">
-
-                <div class="surface-sky"></div>
-                <div class="surface-sun"></div>
-                <div class="surface-mountain mountain-back"></div>
-                <div class="surface-mountain mountain-front"></div>
-                <div class="surface-ground"></div>
-
-            </div>
-        </article>
-
-        <!-- 07: OCEAN SURFACE -->
-        <article class="scene scene-ocean">
-            <div class="visual ocean-visual">
-
-                <div class="ocean-light"></div>
-                <div class="ocean-horizon"></div>
-                <div class="ocean-wave"></div>
-
-            </div>
-        </article>
-
-        <!-- 08: UNDERWATER -->
-        <article class="scene scene-underwater">
-            <div class="visual underwater-visual">
-
-                <div class="underwater-rays"></div>
-                <div class="bubble bubble-one"></div>
-                <div class="bubble bubble-two"></div>
-                <div class="bubble bubble-three"></div>
-                <div class="underwater-rocks"></div>
-
-                 <!-- FISH IN THE UNDERWATER SCENE -->
-<div class="sea-life-layer" aria-hidden="true">
-
-    <div class="sea-fish sea-fish--one">
-        <span class="fish-tail"></span>
-        <span class="fish-body"></span>
-        <span class="fish-fin"></span>
-        <span class="fish-eye"></span>
-    </div>
-
-    <div class="sea-fish sea-fish--two">
-        <span class="fish-tail"></span>
-        <span class="fish-body"></span>
-        <span class="fish-fin"></span>
-        <span class="fish-eye"></span>
-    </div>
-
-    <div class="sea-fish sea-fish--three">
-        <span class="fish-tail"></span>
-        <span class="fish-body"></span>
-        <span class="fish-fin"></span>
-        <span class="fish-eye"></span>
-    </div>
-
-</div>
-            </div>
-        </article>
-       
-
-        <!-- 09: DEEP OCEAN -->
-        <article class="scene scene-deep">
-            <div class="visual deep-visual">
-
-                <div class="deep-glow"></div>
-                <div class="deep-bubble bubble-one"></div>
-                <div class="deep-bubble bubble-two"></div>
-                <div class="deep-floor"></div>
-
-                <!-- FISH IN THE DEEP OCEAN -->
-<div class="sea-life-layer" aria-hidden="true">
-
-    <div class="sea-fish sea-fish--four">
-        <span class="fish-tail"></span>
-        <span class="fish-body"></span>
-        <span class="fish-fin"></span>
-        <span class="fish-eye"></span>
-    </div>
-
-    <div class="sea-fish sea-fish--five">
-        <span class="fish-tail"></span>
-        <span class="fish-body"></span>
-        <span class="fish-fin"></span>
-        <span class="fish-eye"></span>
-    </div>
-
-</div>
-
-            </div>
-        </article>
-
-        <!-- INFORMATION DISPLAY -->
-        <div class="journey-copy">
-
-            <p id="chapter-count">01 / 09</p>
-
-            <h2 id="chapter-title">THE MILKY WAY</h2>
-
-            <p id="chapter-description">
-                Our home galaxy. A vast island of stars.
-            </p>
+            <section class="option-card">
+                <div class="card-image three-d-image"></div>
+                <h2>3D EXPLORATION</h2>
+                <p>An immersive interactive journey through space.</p>
+                <a href="3D%20VERSION/index.html" class="explore-button">
+                    Explore 3D
+                </a>
+            </section>
 
         </div>
-
-        <!-- JOURNEY PROGRESS -->
-        <div class="journey-progress">
-            <div id="progress-bar"></div>
-        </div>
-
-        <!-- OCEAN DEPTH -->
-        <div class="depth-indicator" id="depth-indicator">
-            <span>OCEAN DEPTH</span>
-            <strong id="depth-value">0 m</strong>
-        </div>
-
-        <div class="journey-hint">SCROLL TO TRAVEL ↓</div>
-
-    </div>
-</section>
-
-
-
-    <script src="script.js"></script>
+    </main>
 
 </body>
 </html>
