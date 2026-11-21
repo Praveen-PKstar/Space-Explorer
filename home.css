@@ -1,0 +1,141 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0, 0, 10, 0.30), rgba(0, 0, 15, 0.55)),
+        url("space+background.png") center center / cover no-repeat fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Star background */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 70% 60%, white, transparent),
+        radial-gradient(1px 1px at 40% 80%, white, transparent),
+        radial-gradient(2px 2px at 90% 20%, white, transparent),
+        radial-gradient(1px 1px at 10% 70%, white, transparent);
+    background-size: 250px 250px;
+    animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Main content */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(36px, 6vw, 65px);
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px #64b5ff;
+}
+
+.subtitle {
+    color: #b9c8dc;
+    font-size: 18px;
+    margin-top: 18px;
+    margin-bottom: 55px;
+}
+
+/* Two experience cards */
+.exploration-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 320px));
+    gap: 35px;
+    width: 100%;
+    justify-content: center;
+}
+
+.option-card {
+    background: rgba(15, 25, 48, 0.85);
+    border: 1px solid rgba(120, 180, 255, 0.35);
+    border-radius: 18px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(60, 150, 255, 0.35);
+}
+
+/* Card images */
+.card-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+}
+
+.two-d-image {
+    background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800");
+}
+
+.three-d-image {
+    background-image: url("https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800");
+}
+
+.option-card h2 {
+    font-size: 21px;
+    margin-top: 22px;
+    letter-spacing: 2px;
+}
+
+.option-card p {
+    color: #b9c8dc;
+    margin: 15px 0 22px;
+    line-height: 1.6;
+}
+
+.explore-button {
+    display: inline-block;
+    background: #1769aa;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.explore-button:hover {
+    background: #2599ed;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .exploration-options {
+        grid-template-columns: minmax(0, 350px);
+    }
+
+    h1 {
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        margin-bottom: 35px;
+    }
+}

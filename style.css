@@ -1,0 +1,1313 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   FIRST SCREEN
+========================= */
+
+.intro {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    background:
+        radial-gradient(circle at center,
+        #080b18 0%,
+        #02030a 45%,
+        #000 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* STAR FIELD */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, white 1.5px, transparent 2px);
+
+    background-size:
+        170px 170px,
+        230px 230px,
+        310px 310px;
+
+    background-position:
+        20px 30px,
+        100px 120px,
+        50px 200px;
+
+    opacity: 0.75;
+
+    animation: starMove 20s linear infinite;
+}
+
+
+/* TWINKLING */
+
+.stars::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, white 1.5px, transparent 2.5px);
+
+    background-size:
+        190px 190px,
+        280px 280px;
+
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes twinkle {
+
+    0% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.35;
+    }
+}
+
+
+@keyframes starMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-170px);
+    }
+}
+
+
+/* CENTER TEXT */
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    animation: appear 2s ease;
+}
+
+
+.intro-content h1 {
+
+    font-size: clamp(45px, 7vw, 100px);
+
+    font-weight: 800;
+
+    letter-spacing: 12px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.5),
+        0 0 30px rgba(255,255,255,0.15);
+
+    margin-bottom: 20px;
+}
+
+
+.intro-content p {
+
+    font-size: clamp(16px, 2vw, 25px);
+
+    letter-spacing: 4px;
+
+    color: #d7d7d7;
+}
+
+
+/* DOWN ARROW */
+
+.scroll-indicator {
+
+    margin-top: 60px;
+
+    font-size: 35px;
+
+    opacity: 0.7;
+
+    animation: bounce 1.8s infinite;
+}
+
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   GALAXY SECTION
+========================= */
+
+.galaxy-section {
+
+    height: 100vh;
+
+    position: relative;
+
+    background: #000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* GALAXY IMAGE */
+
+.galaxy {
+
+    width: 55vw;
+    height: 55vw;
+
+    max-width: 650px;
+    max-height: 650px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    transform: scale(1);
+
+
+    box-shadow:
+        0 0 50px rgba(100, 130, 255, 0.25),
+        0 0 120px rgba(80, 100, 255, 0.15);
+}
+
+
+.galaxy img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* GALAXY DESCRIPTION */
+
+.galaxy-text {
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+    text-align: center;
+
+    color: white;
+    z-index: 5;
+}
+
+.galaxy-text h2 {
+    font-size: 38px;
+    margin: 0 0 8px;
+}
+
+.galaxy-text p {
+    font-size: 17px;
+    margin: 0;
+}
+/* ==============================
+   SPACE JOURNEY
+============================== */
+
+.space-journey {
+    position: relative;
+    height: 500vh;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Every space object is placed in the same camera */
+.space-object {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ==============================
+   MILKY WAY
+============================== */
+
+.galaxy {
+    width: 700px;
+    height: 700px;
+    z-index: 3;
+}
+
+.galaxy img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+
+    box-shadow:
+        0 0 80px rgba(100, 150, 255, 0.4),
+        0 0 180px rgba(80, 100, 255, 0.2);
+}
+
+/* ==============================
+   SOLAR SYSTEM
+============================== */
+
+.solar-system {
+    width: 500px;
+    height: 500px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.sun {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 40% 40%,
+            #fff9b0 0%,
+            #ffd23f 30%,
+            #ff8c00 65%,
+            #ff4500 100%
+        );
+
+    box-shadow:
+        0 0 40px #ffb300,
+        0 0 100px rgba(255, 140, 0, 0.7),
+        0 0 180px rgba(255, 80, 0, 0.35);
+}
+
+/* ==============================
+   EARTH
+============================== */
+
+.earth {
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.earth-planet {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #6ec6ff 0%,
+            #1976d2 35%,
+            #0b3d91 70%,
+            #020b24 100%
+        );
+
+    box-shadow:
+        0 0 40px rgba(80, 160, 255, 0.6),
+        0 0 100px rgba(30, 100, 255, 0.35);
+}
+/* =========================================
+   SPACE EXPLORER - CAMERA JOURNEY
+========================================= */
+
+.journey {
+    position: relative;
+    height: 900vh;
+    width: 100%;
+    background: #000;
+}
+
+.journey-camera {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    isolation: isolate;
+    background: #02040b;
+}
+
+/* Stars inside the journey camera */
+
+.journey-stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, white 70%, transparent),
+        radial-gradient(2px 2px at 70% 20%, white 70%, transparent),
+        radial-gradient(1px 1px at 85% 75%, white 70%, transparent),
+        radial-gradient(1px 1px at 40% 80%, white 70%, transparent),
+        radial-gradient(2px 2px at 55% 55%, white 70%, transparent);
+
+    background-size: 250px 250px;
+    animation: journeyStarMove 45s linear infinite;
+}
+
+@keyframes journeyStarMove {
+    from { background-position: 0 0; }
+    to { background-position: 250px 500px; }
+}
+
+/* Scene layers */
+
+.scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: transparent;
+}
+
+.visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    will-change: transform, filter;
+}
+/* =========================================
+   01 - MILKY WAY
+========================================= */
+
+.galaxy-visual {
+    width: min(85vw, 900px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    box-shadow:
+        0 0 80px rgba(100, 130, 255, 0.35),
+        0 0 180px rgba(80, 100, 255, 0.2);
+}
+
+.galaxy-visual img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* =========================================
+   02 - SOLAR SYSTEM
+========================================= */
+
+.solar-visual {
+    width: min(82vw, 760px);
+    aspect-ratio: 1;
+}
+
+.sun-core {
+    position: absolute;
+    width: 14%;
+    height: 14%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 35%,
+        #fff9bd,
+        #ffd23f 35%,
+        #ff8500 70%,
+        #ef3100
+    );
+
+    box-shadow:
+        0 0 45px #ffae00,
+        0 0 100px rgba(255, 140, 0, 0.7),
+        0 0 180px rgba(255, 90, 0, 0.35);
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: var(--orbit-size);
+    height: var(--orbit-size);
+
+    border: 1px solid rgba(180, 205, 255, 0.25);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+    animation: orbitSpin var(--orbit-speed) linear infinite;
+}
+
+@keyframes orbitSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.planet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: var(--planet-size);
+    height: var(--planet-size);
+
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background: var(--planet-color);
+    box-shadow: 0 0 12px var(--planet-color);
+}
+
+.orbit--mercury {
+    --orbit-size: 22%;
+    --planet-size: 9px;
+    --planet-color: #aaa;
+    --orbit-speed: 7s;
+}
+
+.orbit--venus {
+    --orbit-size: 32%;
+    --planet-size: 14px;
+    --planet-color: #d9a66b;
+    --orbit-speed: 11s;
+}
+
+.orbit--earth {
+    --orbit-size: 43%;
+    --planet-size: 17px;
+    --planet-color: #258dff;
+    --orbit-speed: 15s;
+}
+
+.orbit--mars {
+    --orbit-size: 54%;
+    --planet-size: 13px;
+    --planet-color: #d65c37;
+    --orbit-speed: 19s;
+}
+
+.orbit--jupiter {
+    --orbit-size: 67%;
+    --planet-size: 35px;
+    --planet-color: #d6ad86;
+    --orbit-speed: 25s;
+}
+
+.orbit--saturn {
+    --orbit-size: 79%;
+    --planet-size: 27px;
+    --planet-color: #c8b17b;
+    --orbit-speed: 32s;
+}
+
+.orbit--uranus {
+    --orbit-size: 90%;
+    --planet-size: 20px;
+    --planet-color: #8adbe7;
+    --orbit-speed: 38s;
+}
+
+.orbit--neptune {
+    --orbit-size: 100%;
+    --planet-size: 19px;
+    --planet-color: #397bff;
+    --orbit-speed: 45s;
+}
+
+.planet--saturn {
+    position: relative;
+}
+
+/* =========================================
+   03 - MOONS AND PLANETS
+========================================= */
+
+.moons-visual {
+    width: min(70vw, 650px);
+    aspect-ratio: 1;
+}
+
+.large-planet {
+    position: absolute;
+    width: 52%;
+    height: 52%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 30%,
+            #d7a77b,
+            #9b6045 45%,
+            #35213d 85%);
+
+    box-shadow: 0 0 70px rgba(180, 130, 100, 0.3);
+}
+
+.moon-orbit,
+.second-moon-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    height: 85%;
+    border: 1px solid rgba(200, 220, 255, 0.35);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbitSpin 18s linear infinite;
+}
+
+.second-moon-orbit {
+    width: 110%;
+    height: 110%;
+    animation-duration: 30s;
+}
+
+.moon,
+.second-moon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(circle at 35% 30%, #eee, #999 60%, #444);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.second-moon {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 35% 30%, #ddd, #777 70%, #333);
+}
+
+/* =========================================
+   04 - SPACECRAFT
+========================================= */
+
+.rocket-visual {
+    width: 260px;
+    height: 450px;
+}
+
+.rocket-shape {
+    position: absolute;
+    width: 90px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.rocket-body {
+    position: absolute;
+    left: 50%;
+    top: 35px;
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 175px;
+
+    border-radius: 50% 50% 20% 20%;
+
+    background: linear-gradient(
+        90deg,
+        #777,
+        #fff 35%,
+        #dce6f4 70%,
+        #777
+    );
+}
+
+.rocket-nose {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 65px;
+
+    background: #dce6f4;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.rocket-window {
+    position: absolute;
+    left: 50%;
+    top: 48px;
+    transform: translateX(-50%);
+
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: #1e84bd;
+    border: 5px solid #667788;
+}
+
+.rocket-fin {
+    position: absolute;
+    top: 135px;
+    width: 37px;
+    height: 70px;
+    background: #cc3c28;
+}
+
+.rocket-fin-left {
+    left: -12px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.rocket-fin-right {
+    right: -12px;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.rocket-flame {
+    position: absolute;
+    left: 50%;
+    top: 195px;
+    transform: translateX(-50%);
+
+    width: 38px;
+    height: 110px;
+
+    background: linear-gradient(
+        to bottom,
+        #fff5a0 0%,
+        #ff9d00 45%,
+        #ff4500 75%,
+        transparent 100%
+    );
+
+    filter: blur(5px);
+    border-radius: 50%;
+    animation: flameMove 0.34s infinite alternate;
+}
+
+@keyframes flameMove {
+    from {
+        height: 90px;
+        opacity: 0.75;
+    }
+
+    to {
+        height: 120px;
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   05 - EARTH
+========================================= */
+
+.earth-visual {
+    width: min(65vmin, 700px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: radial-gradient(circle at 30% 30%, #3498db, #061b55);
+
+    box-shadow:
+        0 0 55px rgba(60, 150, 255, 0.65),
+        0 0 150px rgba(30, 100, 255, 0.4);
+}
+
+.earth-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* =========================================
+   06 - EARTH SURFACE
+========================================= */
+
+.surface-visual {
+    width: 140vw;
+    height: 140vh;
+    overflow: hidden;
+}
+
+.surface-sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        #183b68 0%,
+        #6aa5c9 45%,
+        #f4bd86 72%,
+        #f5d3a0 100%
+    );
+}
+
+.surface-sun {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: 20%;
+    top: 15%;
+    border-radius: 50%;
+    background: #ffe9b0;
+    box-shadow: 0 0 100px #ffc77b;
+}
+
+.surface-mountain {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 23%;
+    clip-path: polygon(
+        0 100%, 0 65%, 15% 20%, 26% 65%,
+        42% 10%, 58% 75%, 73% 25%,
+        88% 70%, 100% 35%, 100% 100%
+    );
+}
+
+.mountain-back {
+    height: 55%;
+    background: linear-gradient(#546e83, #293b43);
+}
+
+.mountain-front {
+    height: 40%;
+    bottom: 15%;
+    background: linear-gradient(#405d52, #1a3528);
+    transform: scaleX(1.2);
+}
+
+.surface-ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 22%;
+    background: linear-gradient(#315b36, #10271b);
+}
+
+/* =========================================
+   07 - OCEAN SURFACE
+========================================= */
+
+.ocean-visual {
+    width: 140vw;
+    height: 140vh;
+
+    background: linear-gradient(
+        #70c9ed 0%,
+        #087eae 35%,
+        #034c7b 65%,
+        #012b4d 100%
+    );
+}
+
+.ocean-light {
+    position: absolute;
+    width: 70%;
+    height: 90%;
+    left: 15%;
+    top: -20%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(200, 245, 255, 0.55),
+        transparent 70%
+    );
+}
+
+.ocean-horizon {
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    top: 28%;
+    background: rgba(150, 225, 255, 0.25);
+    filter: blur(12px);
+}
+
+.ocean-wave {
+    position: absolute;
+    top: 28%;
+    width: 100%;
+    height: 8%;
+    background: rgba(190, 235, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(18px);
+}
+
+/* =========================================
+   08 - UNDERWATER
+========================================= */
+
+.underwater-visual {
+    width: 140vw;
+    height: 140vh;
+    overflow: hidden;
+
+    background: linear-gradient(
+        #075b88,
+        #03466e 45%,
+        #012743 100%
+    );
+}
+
+.underwater-rays {
+    position: absolute;
+    inset: 0;
+
+    background: repeating-conic-gradient(
+        from 200deg at 50% 0%,
+        rgba(150, 225, 255, 0.12) 0deg,
+        transparent 8deg,
+        transparent 18deg
+    );
+
+    filter: blur(12px);
+}
+
+.bubble {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(210, 245, 255, 0.5);
+    border-radius: 50%;
+    animation: bubbleRise 5s linear infinite;
+}
+
+.bubble-one {
+    left: 25%;
+    bottom: 5%;
+}
+
+.bubble-two {
+    left: 60%;
+    bottom: 15%;
+    animation-delay: 2s;
+}
+
+.bubble-three {
+    left: 80%;
+    bottom: 0;
+    animation-delay: 1s;
+}
+
+@keyframes bubbleRise {
+    from { transform: translateY(0); opacity: 0.1; }
+    to { transform: translateY(-650px); opacity: 0.9; }
+}
+
+.underwater-rocks {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 22%;
+
+    background: linear-gradient(#183d49, #071921);
+    clip-path: polygon(0 55%, 15% 20%, 32% 65%, 55% 30%, 75% 65%, 100% 15%, 100% 100%, 0 100%);
+}
+
+/* =========================================
+   09 - DEEP OCEAN
+========================================= */
+
+.deep-visual {
+    width: 140vw;
+    height: 140vh;
+    overflow: hidden;
+
+    background: linear-gradient(
+        #032b49,
+        #011a31 50%,
+        #000710 100%
+    );
+}
+
+.deep-glow {
+    position: absolute;
+    top: -15%;
+    left: 35%;
+    width: 30%;
+    height: 75%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(60, 140, 180, 0.25),
+        transparent 70%
+    );
+}
+
+.deep-floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18%;
+    background: linear-gradient(#172c35, #050a0d);
+    clip-path: polygon(0 40%, 20% 15%, 43% 55%, 68% 20%, 100% 45%, 100% 100%, 0 100%);
+}
+
+.deep-bubble {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border: 1px solid rgba(190, 230, 255, 0.5);
+    border-radius: 50%;
+    animation: bubbleRise 7s linear infinite;
+}
+
+/* =========================================
+   JOURNEY TEXT AND PROGRESS
+========================================= */
+
+.journey-copy {
+    position: absolute;
+    z-index: 100;
+    left: clamp(24px, 7vw, 100px);
+    bottom: clamp(35px, 8vh, 85px);
+
+    max-width: 520px;
+    color: white;
+    pointer-events: none;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+}
+
+#chapter-count {
+    color: #7edbff;
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+#chapter-title {
+    font-size: clamp(28px, 5vw, 58px);
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+#chapter-description {
+    color: #d5e4f2;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.5;
+}
+
+.journey-progress {
+    position: absolute;
+    z-index: 110;
+    top: 22px;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+}
+
+#progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #8bdcff;
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.journey-hint {
+    position: absolute;
+    z-index: 110;
+    top: 40px;
+    right: 5%;
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.depth-indicator {
+    position: absolute;
+    z-index: 110;
+    right: 6%;
+    bottom: 10%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.4s;
+    text-shadow: 0 2px 10px black;
+}
+
+.depth-indicator.show {
+    opacity: 1;
+}
+
+.depth-indicator span {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #9edfff;
+}
+
+.depth-indicator strong {
+    font-size: 34px;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+
+    .solar-visual {
+        width: 95vw;
+    }
+
+    .galaxy-visual {
+        width: 100vw;
+    }
+
+    .journey-copy {
+        left: 22px;
+        right: 22px;
+        bottom: 65px;
+    }
+
+    .journey-hint {
+        font-size: 9px;
+    }
+
+    .depth-indicator {
+        right: 22px;
+        bottom: 25px;
+    }
+}
+/* =================================
+   SPACE EXPLORER - UNDERWATER FISH
+================================= */
+
+.sea-life-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.sea-fish {
+    position: absolute;
+    width: 70px;
+    height: 34px;
+    animation: fish-swim 9s ease-in-out infinite;
+}
+
+/* Fish positions and colours */
+
+.sea-fish--one {
+    left: 15%;
+    top: 38%;
+    --fish-color: #ff914d;
+    --fish-light: #ffd08a;
+    animation-delay: 0s;
+}
+
+.sea-fish--two {
+    left: 62%;
+    top: 55%;
+    --fish-color: #4dd0e1;
+    --fish-light: #b2f5ff;
+    animation-delay: 1.5s;
+}
+
+.sea-fish--three {
+    left: 35%;
+    top: 75%;
+    --fish-color: #f5c542;
+    --fish-light: #fff0a6;
+    animation-delay: 3s;
+}
+
+.sea-fish--four {
+    left: 20%;
+    top: 45%;
+    --fish-color: #65d6c4;
+    --fish-light: #b8fff0;
+    animation-delay: 1s;
+}
+
+.sea-fish--five {
+    left: 65%;
+    top: 65%;
+    --fish-color: #9b9cff;
+    --fish-light: #d8d9ff;
+    animation-delay: 2.5s;
+}
+
+/* Fish body */
+
+.fish-body {
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    width: 48px;
+    height: 25px;
+    border-radius: 55% 50% 50% 55%;
+    background: linear-gradient(
+        135deg,
+        var(--fish-light),
+        var(--fish-color)
+    );
+    box-shadow: 0 0 10px var(--fish-color);
+}
+
+/* Fish tail */
+
+.fish-tail {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 18px solid var(--fish-color);
+    transform-origin: right center;
+    animation: fish-tail-wag 0.35s ease-in-out infinite alternate;
+}
+
+/* Top fin */
+
+.fish-fin {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid var(--fish-light);
+}
+
+/* Fish eye */
+
+.fish-eye {
+    position: absolute;
+    left: 54px;
+    top: 13px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #111;
+    z-index: 2;
+}
+
+/* Fish swimming movement */
+
+@keyframes fish-swim {
+    0% {
+        transform: translate(0, 0) scaleX(1);
+    }
+
+    45% {
+        transform: translate(55px, -10px) scaleX(1);
+    }
+
+    50% {
+        transform: translate(55px, -10px) scaleX(-1);
+    }
+
+    95% {
+        transform: translate(0, 8px) scaleX(-1);
+    }
+
+    100% {
+        transform: translate(0, 8px) scaleX(1);
+    }
+}
+
+/* Tail movement */
+
+@keyframes fish-tail-wag {
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform: rotate(12deg);
+    }
+}
